@@ -873,6 +873,8 @@ namespace Elasticsearch.Net
 	public partial class GetScriptRequestParameters : RequestParameters<GetScriptRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+		///<summary>Specify timeout for connection to master</summary>
+		public TimeSpan MasterTimeout { get => Q<TimeSpan>("master_timeout"); set => Q("master_timeout", value); }
 	}
 	///<summary>Request options for GetSource<pre>http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html</pre></summary>
 	public partial class SourceRequestParameters : RequestParameters<SourceRequestParameters> 
@@ -938,8 +940,10 @@ namespace Elasticsearch.Net
 		///<summary>The name of the index to scope the operation</summary>
 		public string IndexQueryString { get => Q<string>("index"); set => Q("index", value); }
 		///<summary>With `true`, specify that a local shard should be used if available, with `false`, use a random shard (default: true)</summary>
+		[Obsolete("Scheduled to be removed in 7.0, Erroneously documented as a valid option, no longer document from 6.4 onwards as per https://github.com/elastic/elasticsearch/pull/31795")]
 		public bool? PreferLocal { get => Q<bool?>("prefer_local"); set => Q("prefer_local", value); }
 		///<summary>Format of the output</summary>
+		[Obsolete("Scheduled to be removed in 7.0, Erroneously documented as a valid option, no longer document from 6.4 onwards as per https://github.com/elastic/elasticsearch/pull/31795")]
 		public Format? Format { get => Q<Format?>("format"); set => Q("format", value); }
 	}
 	///<summary>Request options for IndicesClearCacheForAll<pre>http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html</pre></summary>
@@ -1169,6 +1173,8 @@ namespace Elasticsearch.Net
 		public bool? FlatSettings { get => Q<bool?>("flat_settings"); set => Q("flat_settings", value); }
 		///<summary>Whether to return all default setting for each of the indices.</summary>
 		public bool? IncludeDefaults { get => Q<bool?>("include_defaults"); set => Q("include_defaults", value); }
+		///<summary>Specify timeout for connection to master</summary>
+		public TimeSpan MasterTimeout { get => Q<TimeSpan>("master_timeout"); set => Q("master_timeout", value); }
 	}
 	///<summary>Request options for IndicesGetAliasForAll<pre>http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html</pre></summary>
 	public partial class GetAliasRequestParameters : RequestParameters<GetAliasRequestParameters> 
@@ -1217,6 +1223,8 @@ namespace Elasticsearch.Net
 		public bool? AllowNoIndices { get => Q<bool?>("allow_no_indices"); set => Q("allow_no_indices", value); }
 		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
 		public ExpandWildcards? ExpandWildcards { get => Q<ExpandWildcards?>("expand_wildcards"); set => Q("expand_wildcards", value); }
+		///<summary>Specify timeout for connection to master</summary>
+		public TimeSpan MasterTimeout { get => Q<TimeSpan>("master_timeout"); set => Q("master_timeout", value); }
 		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
 		public bool? Local { get => Q<bool?>("local"); set => Q("local", value); }
 	}
@@ -1224,6 +1232,8 @@ namespace Elasticsearch.Net
 	public partial class GetIndexSettingsRequestParameters : RequestParameters<GetIndexSettingsRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+		///<summary>Specify timeout for connection to master</summary>
+		public TimeSpan MasterTimeout { get => Q<TimeSpan>("master_timeout"); set => Q("master_timeout", value); }
 		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
 		public bool? IgnoreUnavailable { get => Q<bool?>("ignore_unavailable"); set => Q("ignore_unavailable", value); }
 		///<summary>
@@ -1421,6 +1431,8 @@ namespace Elasticsearch.Net
 	public partial class ShrinkIndexRequestParameters : RequestParameters<ShrinkIndexRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+		///<summary>whether or not to copy settings from the source index (defaults to false)</summary>
+		public bool? CopySettings { get => Q<bool?>("copy_settings"); set => Q("copy_settings", value); }
 		///<summary>Explicit operation timeout</summary>
 		public TimeSpan Timeout { get => Q<TimeSpan>("timeout"); set => Q("timeout", value); }
 		///<summary>Specify timeout for connection to master</summary>
@@ -1432,6 +1444,8 @@ namespace Elasticsearch.Net
 	public partial class SplitIndexRequestParameters : RequestParameters<SplitIndexRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+		///<summary>whether or not to copy settings from the source index (defaults to false)</summary>
+		public bool? CopySettings { get => Q<bool?>("copy_settings"); set => Q("copy_settings", value); }
 		///<summary>Explicit operation timeout</summary>
 		public TimeSpan Timeout { get => Q<TimeSpan>("timeout"); set => Q("timeout", value); }
 		///<summary>Specify timeout for connection to master</summary>

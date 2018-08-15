@@ -86,6 +86,16 @@ namespace ApiGenerator
 			"xpack.ssl.certificates.json",
 
 			"scripts_painless_execute.json",
+
+			// 6.4 new  API's
+
+			"xpack.ml.update_filter.json",
+			"xpack.rollup.get_rollup_index_caps.json",
+			"xpack.security.delete_privileges.json",
+			"xpack.security.get_privileges.json",
+			"xpack.security.has_privileges.json",
+			"xpack.security.put_privilege.json",
+			"xpack.security.put_privileges.json",
 		};
 
 		private static RestApiSpec CreateRestApiSpecModel(string downloadBranch, string[] folders)
